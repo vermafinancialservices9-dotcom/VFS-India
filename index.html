@@ -1,256 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VFS INDIA</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</style>
-<style>
-body{background: linear-gradient(135deg,#081b33,#12284c,#1e3c72);
-background-size:400% 400%;
-animation:bg 10s ease infinite;
-margin:0;
-font-family:Arial;
-background:#081b33;
-color:white;
-text-align:center;
-.header{
-padding:60px 20px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VFS INDIA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #081b33, #12284c, #1e3c72);
+            background-size: 400% 400%;
+            animation: bg 10s ease infinite;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
 
-h1{
-font-size:42px;
-color:#FFD700;
-margin:0;
-}
+        @keyframes bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-h2{
-font-size:22px;
-margin-top:10px;
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #06152b;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-p{
-color:#ddd;
-}
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #FFD700;
+        }
 
-.btn{
-display:inline-block;
-margin-top:25px;
-padding:15px 35px;
-background:#FFD700;
-color:#081b33;
-text-decoration:none;
-border-radius:50px;
-font-weight:bold;
-}
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 15px;
+        }
 
-.services{
-padding:30px;
-}
+        .menu a:hover {
+            color: #FFD700;
+        }
 
-.card{
-background:#12284c;
-margin:15px;
-padding:20px;
-border-radius:15px;
-}.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-background:#06152b;
-position:sticky;
-top:0;
-}
+        .header {
+            padding: 40px 20px;
+        }
 
-.logo{
-font-size:22px;
-font-weight:bold;
-color:#FFD700;
-}
+        .logo-img {
+            height: 80px;
+            width: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
 
-.menu a{
-color:white;
-text-decoration:none;
-margin-left:15px;
-font-size:15px;
-}
+        h1 {
+            font-size: 42px;
+            color: #FFD700;
+            margin: 0;
+        }
 
-.menu a:hover{
-color:#FFD700;
-}.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-width:60px;
-height:60px;
-background:#25D366;
-color:white;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
-text-decoration:none;
-box-shadow:0 0 10px rgba(0,0,0,.4);
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-</style>
-</style>
+        h2 {
+            font-size: 22px;
+            margin-top: 10px;
+        }
 
+        .services {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            background: #12284c;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #FFD700;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .form-container {
+            background: #12284c;
+            padding: 25px;
+            margin: 20px auto;
+            border-radius: 15px;
+            max-width: 500px;
+            border: 1px solid #FFD700;
+        }
+
+        .form-container input, .form-container select {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            padding: 15px 35px;
+            background: #FFD700;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #081b33;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            background: #e6c200;
+        }
+
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0,0,0,.4);
+            z-index: 1000;
+        }
+    </style>
 </head>
-
-<div style="background:#12284c;padding:25px;margin:20px;border-radius:15px;">
-<h2>Request a Service</h2>
-
-<input type="text" placeholder="Enter your name"
-style="width:90%;padding:12px;margin:10px;border-radius:8px;border:none;"><br>
-
-<input type="tel" placeholder="Mobile Number"
-style="width:90%;padding:12px;margin:10px;border-radius:8px;border:none;"><br>
-<label style="color:white;font-weight:bold;">Upload Document</label>
-
-<input type="file"
-style="width:100%;padding:10px;margin:10px 0;color:white;">
-<select style="width:90%;padding:12px;margin:10px;border-radius:8px;border:none;">
-<option>GST Registration</option>
-<option>GST Return Filing</option>
-<option>ITR Filing</option>
-<option>Tally Accounting</option>
-<option>PAN / TAN</option>
-<option>MSME Registration</option>
-</select><br>
-
-<button style="padding:15px 35px;background:#FFD700;border:none;border-radius:30px;font-size:18px;font-weight:bold;">
-<button id="submitBtn">Submit Request
-</button>
-
-</div>
 <body>
-  <div class="navbar">
-  <div class="logo">VFS INDIA</div>
-  <div class="menu">
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </div>
+
+<div class="navbar">
+    <div class="logo">VFS INDIA</div>
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#services-section">Services</a>
+        <a href="#form-section">Request</a>
+    </div>
 </div>
 
 <div class="header">
- <a href="https://imgbb.com/"><img src="https://i.ibb.co/3ypQ2WPP/41672.png" alt="41672" border="0"></a>
-<h1>VFS INDIA</h1>
-<p style="font-size:20px;color:#FFD700;font-weight:bold;">
-Your Trusted Partner for Tax, GST, ITR & Business Solutions
-</p>
-
-<p style="color:white;font-size:16px;">
-GST Registration • GST Return • ITR Filing • Tally • MSME • PAN • TAN • DSC
-</p>
-<a href="tel:+919162112145"
-style="background:#FFD700;color:#000;padding:12px 25px;border-radius:30px;text-decoration:none;font-weight:bold;margin-right:10px;">
-📞 Call Now
-</a>
-
-<a href="https://wa.me/919162112145"
-style="background:#25D366;color:#fff;padding:12px 25px;border-radius:30px;text-decoration:none;font-weight:bold;">
-💬 WhatsApp
-</a>
-
-<h2 style="text-align:center;color:#FFD700;">⭐ Customer Reviews</h2>
-<h2 style="text-align:center;color:#FFD700;">🕒 Office Hours</h2>
-
-<div style="background:#12284c;padding:15px;margin:10px;border-radius:12px;color:white;">
-Monday - Saturday : 9:00 AM - 7:00 PM<br>
-Sunday : Closed
-</div>
-<div style="background:#12284c;padding:15px;margin:10px;border-radius:12px;">
-<p style="color:white;">⭐⭐⭐⭐⭐</p>
-<p style="color:white;">"Excellent GST & ITR service. Very professional."</p>
-<b style="color:#FFD700;">- Rahul Kumar</b>
+    <img src="https://i.ibb.co/3ypQ2WPP/41672.png" alt="VFS India Logo" class="logo-img">
+    <h1>VFS INDIA</h1>
+    <p style="font-size:20px; color:#FFD700; font-weight:bold; margin-top: 5px;">
+        Your Trusted Partner for Tax, GST, ITR & Business Solutions
+    </p>
+    <p style="color:white; font-size:16px;">
+        GST Registration • GST Return • ITR Filing • Tally • MSME • PAN • TAN • DSC
+    </p>
+    <div style="margin-top: 25px;">
+        <a href="tel:+919162112145" style="background:#FFD700; color:#000; padding:12px 25px; border-radius:30px; text-decoration:none; font-weight:bold; margin-right:10px; display: inline-block;">
+            📞 Call Now
+        </a>
+        <a href="https://wa.me/919162112145" style="background:#25D366; color:#fff; padding:12px 25px; border-radius:30px; text-decoration:none; font-weight:bold; display: inline-block;">
+            💬 WhatsApp
+        </a>
+    </div>
 </div>
 
-<div style="background:#12284c;padding:15px;margin:10px;border-radius:12px;">
-<p style="color:white;">⭐⭐⭐⭐⭐</p>
-<p style="color:white;">"Fast and reliable financial services."</p>
-<b style="color:#FFD700;">- Neha Singh</b>
+<hr style="border: 0; border-top: 1px solid #1e3c72; margin: 20px 0;">
+
+<div id="services-section">
+    <h2 style="color:#FFD700;">Our Services</h2>
+    <div class="services">
+        <div class="card">
+            <h3 style="color:#FFD700; margin: 0 0 10px 0;">📄 GST Registration</h3>
+            <p style="color:white; margin:0;">Fast & Hassle-Free GST Registration.</p>
+        </div>
+        <div class="card">
+            <h3 style="color:#FFD700; margin: 0 0 10px 0;">📉 ITR Filing</h3>
+            <p style="color:white; margin:0;">Accurate and timely Income Tax Return filing.</p>
+        </div>
+        <div class="card">
+            <h3 style="color:#FFD700; margin: 0 0 10px 0;">💼 Accounting & Bookkeeping</h3>
+            <p style="color:white; margin:0;">Professional Tally Accounting Services.</p>
+        </div>
+        <div class="card">
+            <h3 style="color:#FFD700; margin: 0 0 10px 0;">🆔 PAN • TAN • MSME</h3>
+            <p style="color:white; margin:0;">Quick MSME Registration & PAN/TAN allotment.</p>
+        </div>
+    </div>
 </div>
 
-<div style="background:#12284c;padding:15px;margin:10px;border-radius:12px;">
-<p style="color:white;">✔ Experienced Tax & GST Consultant</p>
-<p style="color:white;">✔ Fast & Accurate Service</p>
-<p style="color:white;">✔ 100% Client Satisfaction</p>
-<p style="color:white;">✔ Online & Offline Support</p>
-<p style="color:white;">✔ Affordable Pricing</p>
+<div class="form-container" id="form-section">
+    <h2>Request a Service</h2>
+    <input type="text" id="name" placeholder="Enter your name"><br>
+    <input type="tel" id="mobile" placeholder="Mobile Number"><br>
+    
+    <label style="color:white; font-weight:bold; display:block; margin-top:10px;">Select Service</label>
+    <select id="service">
+        <option>GST Registration</option>
+        <option>GST Return Filing</option>
+        <option>ITR Filing</option>
+        <option>Tally Accounting</option>
+        <option>PAN / TAN</option>
+        <option>MSME Registration</option>
+    </select><br>
+
+    <button id="submitBtn" class="submit-btn">Submit Request</button>
 </div>
 
-<p>Trusted Tax & Business Solutions</p>
-
-<a class="btn" href="#">Request Service</a>
-
+<div style="background:#12284c; padding:20px; margin:20px auto; border-radius:12px; max-width: 500px;">
+    <h2 style="color:#FFD700; margin-top:0;">🕒 Office Hours</h2>
+    <p style="color:white; margin:5px 0;">Monday - Saturday : 9:00 AM - 7:00 PM</p>
+    <p style="color:white; margin:5px 0;">Sunday : Closed</p>
 </div>
 
-<div class="services">
-
-<div class="card">
-<div style="background:#12284c;padding:15px;margin:10px;border-radius:12px;border:1px solid #FFD700;">
-<h3 style="color:#FFD700;">📄 GST Registration</h3>
-<p style="color:white;">Fast & Hassle-Free GST Registration.</p>
-</div>
-</div>
-
-<div class="card">
-ITR Filing
-</div>
-
-<div class="card">
-Accounting & Bookkeeping
+<div style="background:#12284c; padding:20px; margin:20px auto; border-radius:12px; max-width: 500px;">
+    <h2 style="color:#FFD700; margin-top:0;">⭐ Customer Reviews</h2>
+    <div style="margin-bottom: 15px;">
+        <p style="color:white; margin:0;">⭐⭐⭐⭐⭐</p>
+        <p style="color:white; margin:5px 0;">"Excellent GST & ITR service. Very professional."</p>
+        <b style="color:#FFD700;">- Rahul Kumar</b>
+    </div>
+    <div>
+        <p style="color:white; margin:0;">⭐⭐⭐⭐⭐</p>
+        <p style="color:white; margin:5px 0;">"Fast and reliable financial services."</p>
+        <b style="color:#FFD700;">- Neha Singh</b>
+    </div>
 </div>
 
-<div class="card">
-PAN • TAN • MSME
+<div style="background:#12284c; padding:20px; margin:20px auto; border-radius:12px; max-width: 500px; text-align: left; box-sizing: border-box;">
+    <p style="color:white; margin:5px 0;">✔ Experienced Tax & GST Consultant</p>
+    <p style="color:white; margin:5px 0;">✔ Fast & Accurate Service</p>
+    <p style="color:white; margin:5px 0;">✔ 100% Client Satisfaction</p>
+    <p style="color:white; margin:5px 0;">✔ Online & Offline Support</p>
+    <p style="color:white; margin:5px 0;">✔ Affordable Pricing</p>
 </div>
 
-</div>
-<footer style="background:#081b33;color:white;text-align:center;padding:20px;">
-
-<h3>VFS INDIA – VERMA FINANCIAL SERVICES</h3>
-
-<p>📍 Araria, Bihar</p>
-
-<p>📞 +91 9162112145</p>
-
-<p>📧 vermafinancialservice9@gmail.com</p>
-
-<p>© 2026 All Rights Reserved</p>
-
+<!-- यहाँ फुटर में आपका नाम जोड़ दिया गया है -->
+<footer style="background:#06152b; color:white; text-align:center; padding:35px 20px; border-top: 2px solid #FFD700;">
+    <h3 style="color:#FFD700; margin:0 0 5px 0; font-size: 24px;">VERMA FINANCIAL SERVICES</h3>
+    <p style="color:#FFD700; margin:0 0 15px 0; font-size: 14px; letter-spacing: 2px;">VFS INDIA</p>
+    
+    <div style="margin: 15px 0; font-size: 16px; line-height: 1.6;">
+        <p style="margin:5px 0; color: #fff;">👤 **Proprietor:** Priyam Kumar Verma</p>
+        <p style="margin:5px 0;">📍 **Address:** Araria, Bihar</p>
+        <p style="margin:5px 0;">📞 **Mobile:** +91 9162112145</p>
+        <p style="margin:5px 0;">📧 **Email:** vermafinancialservice9@gmail.com</p>
+    </div>
+    
+    <p style="margin:25px 0 0 0; font-size: 13px; color: #aaa;">© 2026 VFS INDIA. All Rights Reserved.</p>
 </footer>
-  <h3>VERMA FINANCIAL SERVICES</h3>
-  <p>GST • ITR • Accounting • MSME • PAN • TAN</p>
-  <p>📞 +91 9162112145</p>
-  <p>© 2026 VFS INDIA. All Rights Reserved.</p>
+
 <a href="https://wa.me/919162112145" class="whatsapp" target="_blank">
-📱
+    <i class="fab fa-whatsapp"></i>
 </a>
+
 <script>
 document.getElementById("submitBtn").onclick = function () {
+    var name = document.getElementById("name");
+    var mobile = document.getElementById("mobile");
+    var service = document.getElementById("service");
 
-var name = document.getElementById("name");
-var mobile = document.getElementById("mobile");
-var service = document.getElementById("service");
+    var nameVal = name ? name.value.trim() : "";
+    var mobileVal = mobile ? mobile.value.trim() : "";
+    var serviceVal = service ? service.value : "";
 
-var msg =
-"🧾 *VFS INDIA - Service Request*%0A%0A" +
-"👤 Name: " + (name ? name.value : "") +
-"%0A📱 Mobile: " + (mobile ? mobile.value : "") +
-"%0A📋 Service: " + (service ? service.value : "") +
-"%0A%0APlease contact me regarding this service.";
+    if(nameVal === "" || mobileVal === "") {
+        alert("Please enter both Name and Mobile Number.");
+        return;
+    }
 
-window.open("https://wa.me/919162112145?text=" + msg, "_blank");
+    var msg =
+    "🧾 *VFS INDIA - Service Request*%0A%0A" +
+    "👤 *Name:* " + encodeURIComponent(nameVal) + "%0A" +
+    "📱 *Mobile:* " + encodeURIComponent(mobileVal) + "%0A" +
+    "📋 *Service:* " + encodeURIComponent(serviceVal) + "%0A%0A" +
+    "📎 *Note:* मैं अपने दस्तावेज़ (Documents) नीचे चैट में अटैच करके भेज रहा हूँ।";
 
+    window.open("https://wa.me/919162112145?text=" + msg, "_blank");
 };
 </script>
+
 </body>
 </html>
